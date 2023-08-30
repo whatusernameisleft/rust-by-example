@@ -1,4 +1,5 @@
 use crate::List::*;
+use std::fmt::{ Display, Formatter, Result };
 
 enum List {
     // Cons: Tuple struct that wraps an element and a pointer to the next node
@@ -59,6 +60,12 @@ impl List {
     }
 }
 
+impl Display for List {
+    fn fmt(&self, f: &mut Formatter) -> Result {
+        write!(f, "{}", self.stringify())
+    }
+}
+
 fn main() {
     // Create an empty linked list
     let mut list = List::new();
@@ -74,5 +81,5 @@ fn main() {
 
     // Show the final state of the list
     println!("linked list has length: {}", list.len());
-    println!("{}", list.stringify());
+    println!("{}", list);
 }
