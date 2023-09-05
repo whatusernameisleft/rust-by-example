@@ -1,5 +1,5 @@
 use crate::List::*;
-use std::fmt::{ Display, Formatter, Result };
+use std::fmt::{Display, Formatter, Result};
 
 enum List {
     // Cons: Tuple struct that wraps an element and a pointer to the next node
@@ -55,7 +55,7 @@ impl List {
                 // allocated string instead of printing to the console
                 format!("{}, {}", head, tail.stringify())
             }
-            Nil => { format!("Nil") }
+            Nil => "Nil".to_owned(),
         }
     }
 }

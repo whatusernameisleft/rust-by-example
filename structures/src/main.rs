@@ -31,18 +31,30 @@ struct Rectangle {
 
 fn rect_area(rectangle: Rectangle) -> f32 {
     let Rectangle {
-        top_left: Point { x: left_edge, y: top_edge },
-        bottom_right: Point { x: right_edge, y: bottom_edge },
+        top_left: Point {
+            x: left_edge,
+            y: top_edge,
+        },
+        bottom_right: Point {
+            x: right_edge,
+            y: bottom_edge,
+        },
     } = rectangle;
 
     ((right_edge - left_edge) * (bottom_edge - top_edge)).abs()
 }
 
 fn square(point: Point, side_length: f32) -> Rectangle {
-    let Point { x: left_edge, y: top_edge } = point;
+    let Point {
+        x: left_edge,
+        y: top_edge,
+    } = point;
     Rectangle {
         top_left: point,
-        bottom_right: Point { x: left_edge + side_length, y: top_edge + side_length },
+        bottom_right: Point {
+            x: left_edge + side_length,
+            y: top_edge + side_length,
+        },
     }
 }
 
@@ -70,12 +82,18 @@ fn main() {
     println!("second point: ({}, {})", bottom_right.x, bottom_right.y);
 
     // Destructure the point using a `let` binding
-    let Point { x: left_edge, y: top_edge } = point;
+    let Point {
+        x: left_edge,
+        y: top_edge,
+    } = point;
 
     let rectangle = Rectangle {
         // struct instantiation is an expression too
-        top_left: Point { x: left_edge, y: top_edge },
-        bottom_right: bottom_right,
+        top_left: Point {
+            x: left_edge,
+            y: top_edge,
+        },
+        bottom_right,
     };
 
     println!("Rectangle Area: {}", rect_area(rectangle));
