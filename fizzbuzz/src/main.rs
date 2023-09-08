@@ -2,7 +2,7 @@ fn main() {
     fizzbuzz_match(110);
 }
 
-fn fizzbuzz_naive(n: i32) {
+fn fizzbuzz_if(n: i32) {
     (1..=n)
         .map(|i| -> String {
             let mut s = "".to_string();
